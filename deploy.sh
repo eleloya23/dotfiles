@@ -46,7 +46,6 @@ section "GITHUB CONFIG"
    GIT_NAME_SET=$(git config -f ~/.gitconfig.private user.name)
    [[ -z $GIT_NAME_SET && -z $GIT_NAME ]] && echo 'Escribe tu nombre para git:' && read GIT_NAME
    [[ $GIT_NAME_SET != $GIT_NAME ]] && git config -f ~/.gitconfig.private user.name $GIT_NAME > /dev/null
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
    
 #-----------------------------------------------
 
@@ -59,7 +58,8 @@ section "HOMEBREW TOLLS & APPS"
 
      if ! grep -qs "recommended by brew doctor" ~/.bash_profile; then
        echo "Put Homebrew location earlier in PATH ..."
-         echo "\n# recommended by brew doctor" >> ~/.bash_profile
+       echo " " >> ~/.bash_profile
+         echo "# recommended by brew doctor" >> ~/.bash_profile
          echo "export PATH=\"/usr/local/bin:\$PATH\"\n" >> ~/.bash_profile
          export PATH="/usr/local/bin:$PATH"
      fi
@@ -67,39 +67,30 @@ section "HOMEBREW TOLLS & APPS"
      warning "Homebrew already installed. Skipping ..."
    fi
 
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
-
    cout "Instalando homebrew-cask"
    brew tap phinze/homebrew-cask 2>/dev/null
    brew install brew-cask 2>/dev/null
   
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
   
    cout "Instalando Command Line Tools"
    while read -r line; do installbrew $line; done < ./defaults/brew.tools
    
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
    
 
    cout "Instalando OS X Apps"
    while read -r line; do installcask $line; done < ./defaults/brew.apps
-   
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
-   
+      
    
    cout "Configurando Tools & Apps"
-   source brew.post
+   source $DEFAULTS/brew.post
    
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
    
 #-----------------------------------------------
 
 #-----------------------------------------------
 section "MAC OS X CONFIG"
    source $DEFAULTS/osxconfig
-   
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
-   
+      
 #-----------------------------------------------
 
 
