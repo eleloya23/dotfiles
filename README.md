@@ -2,6 +2,8 @@ Deployster
 ======
 Deployster es un script que tranforma tu nueva Mac OS X en una verdadera maquina para programar.
 
+Aunque actualmente configura la computadora para desarrollar Ruby On Rails, deployster es bastante [customizable](#customizando) y se puede ajustar a tu equipo.
+
 Pre-Requisitos
 --------------
 
@@ -9,10 +11,10 @@ Pre-Requisitos
 
 Tienes que tener instalado GCC en la computadora:
 
-**Lion (10.7) o Mountain Lion (10.8)**: Usa [Command Line Tools for
+**Lion (10.7) o Mountain Lion (10.8)**: Descarga [Command Line Tools for
 XCode](https://developer.apple.com/downloads/index.action).
 
-**Mavericks (10.9)**: Ejecuta `sudo xcodebuild -license` y sigue las instrucciones. Despues  escribe `xcode-select --install` en tu terminal y finalmente click en "Install".
+**Mavericks (10.9)**: Ejecuta `sudo xcodebuild -license` y sigue las instrucciones. Finalmente ejecute `xcode-select --install`. *Algunos usuarios [reportan](http://stackoverflow.com/questions/19907576/xcode-is-not-currently-available-from-the-software-update-server) que fue necesario bajar Xcode desde la AppStore.*
 
 Instalación
 -----------
