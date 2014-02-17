@@ -71,12 +71,12 @@ section "HOMEBREW TOLLS & APPS"
    brew tap phinze/homebrew-cask 2>/dev/null
    brew install brew-cask 2>/dev/null
   
-  
+   section "COMMAND LINE TOOLS"
    cout "Instalando Command Line Tools"
    while read -r line; do installbrew $line; done < ./defaults/brew.tools
    
    
-
+   section "MAC OS X APPS"
    cout "Instalando OS X Apps"
    while read -r line; do installcask $line; done < ./defaults/brew.apps
       
