@@ -1,0 +1,216 @@
+
+
+" Cool Shortcuts
+"
+" ,i = open this file
+"
+" ,rn || ,mv = Rename Actual File
+"
+" ,h = new horizontal window
+" ,v = new vertical window
+"
+" ,n = toggle NERDTree off and on
+" ,p = go to previous file
+" ,mt = merge tab with previous tab into a split
+"
+" ,cn = coding notes
+" ,pn = project notes
+" ,gn = notas generales
+" ,mn = Monthly Notes
+"
+" ,pd = Change to personal directory (es la misma, pero aveces me confundo)
+" ,fd = Change directory to current file
+" ,hd = Change directory to ~
+"
+" ################
+" #  Rails Shit  #
+" ################
+"
+" ,gtv = Go To View
+" ,gtc = Go To Controller
+" ,gtm = Go To Model
+" ,gts = Go To Schema
+" ,gtg = Go To Gemfile
+" ,gtr = Go To Routes
+"
+" ,rm = Rake db:migrate:reset
+" ,rs = Rake db:seed
+" ,bi = bundle install
+"
+" ,gs = Git Status
+" ,gc = Git Commit
+" ,gp = Git Pull
+"
+
+" Use Pathogen to load all the ~/.vim/bundle/* plugins
+set nocompatible
+set term=builtin_ansi
+execute pathogen#infect()
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Cambiamos el map leader para que este mas comodo.
+let mapleader = ","
+
+map <leader>i :vsp ~/.vimrc<cr>
+
+map <Leader>mv :call RenameFile()<cr>
+map <Leader>rn :call RenameFile()<cr>
+
+map <leader>n :NERDTreeToggle<cr>
+map <leader>p <C-^> " Go to previous file
+map <leader>mt :call MergeTabs()<cr>
+
+map <leader>cn :e ~/Dropbox/Personal/coding-notes.txt<cr>
+map <leader>pn :e ~/Dropbox/Personal/project-notes.txt<cr>
+map <leader>gn :e ~/Dropbox/Personal/general.tasks<cr>
+map <leader>mn :e ~/Dropbox/Personal/monthly_goals.tasks<cr>
+map <leader>yn :e ~/Dropbox/Personal/yearly_goals.tasks<cr>
+
+map <leader>pd :lcd ~/Dropbox/Personal<cr>
+map <leader>hd :lcd ~<cr>
+map <leader>fd :lcd %:h<cr>
+
+" ################
+" #  Rails Shit  #
+" ################
+map <leader>gtv :Rview
+map <leader>gtc :Rcontroller
+map <leader>gtm :Rmodel
+map <Leader>gts :e db/schema.rb<cr>
+map <leader>gtg :e Gemfile<cr>
+map <leader>gtr :e config/routes.rb<cr>
+
+map <leader>rdm :!bundle exec rake db:migrate:reset<cr>
+map <leader>rds :!bundle exec rake db:seed<cr>
+map <leader>bi :!bundle install<cr>
+
+map <Leader>gs :Gstatus<CR>
+map <leader>gc :Gcommit -m ""<LEFT>
+map <leader>gac :Gcommit -m -a ""<LEFT>
+map <leader>gp :!git pull<CR>
+
+
+" Plugins Configuration
+let g:NERDTreeWinPos = "left"
+let g:ctrlp_working_path_mode = 'ra'
+
+
+set splitbelow splitright
+noremap <Leader>v :vsp^M^W^W<cr>
+noremap <Leader>h :split^M^W^W<cr>
+imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+cmap w!! w !sudo tee % >/dev/null
+
+
+" Detect extensions
+autocmd BufRead,BufNewFile *.html.erb setlocal filetype=html.eruby
+autocmd BufRead,BufNewFile *.css.scss setlocal filetype=css.scss
+autocmd BufRead,BufNewFile *.js.coffee setlocal filetype=js.coffee
+
+" CONFIGURATION
+
+syntax on
+syntax enable                    
+colorscheme railscasts
+filetype plugin on
+filetype plugin indent on
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+set shiftround                   " When at 3 spaces and I hit >>, go to 4, not 5.
+set autoindent                   " always set autoidenting on
+set autoread                     " reload file when it changes
+set showmatch                    " jump to a matching bracker usign %
+
+set nocompatible                  
+set backspace=indent,eol,start    " Intuitive backspacing.
+set history=500                   " big history bro
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+set title                         " Set the terminal's title
+set visualbell                    " No beeping.
+set noesckeys                     " Get rid of the delay when hitting esc
+set ttimeout                      " Same as above
+set ttimeoutlen=1
+set noswapfile                    " I dont like backups nor swap files
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp      " Keep swap files in one location
+set backupdir=$HOME/.vim/tmp
+
+set pastetoggle=<F2>
+set go-=L                         " Removes left hand scroll bar
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+set noincsearch                   " Wont Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+
+set wrap                          " Turn on line wrapping.
+set hidden                        " Handle multiple buffers better.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+set laststatus=2                  " Show the status line all the time
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+highlight StatusLine ctermfg=blue ctermbg=yellow
+
+
+
+
+command! Q q "Bind :Q to :q
+command! Qall qall
+
+map Q <Nop> "Disable Ex mode
+map K <Nop> "Disable K looking stuff up
+
+
+" ===========================================
+" CUSTOM FUNCTIONS BELOW
+" ===========================================
+
+" F4, creates a ruby block comment
+" #############
+" #  example  #
+" #############
+"
+nnoremap <F4> <esc>yyp<c-v>$r#<esc>I######<esc>kI#  <esc>A  #<esc>yyP<c-v>$r#<esc>jjj
+
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+      exec ':saveas ' . new_name
+      exec ':silent !rm ' . old_name
+      redraw!
+  endif
+endfunction
+
+
+" Merge a tab into a split in the previous window
+function! MergeTabs()
+if tabpagenr() == 1
+  return
+endif
+let bufferName = bufname("%")
+if tabpagenr("$") == tabpagenr()
+  close!
+else
+  close!
+  tabprev
+endif
+split
+execute "buffer " . bufferName
+endfunction
+

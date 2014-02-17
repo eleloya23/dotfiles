@@ -1,0 +1,29 @@
+alias bake='bundle exec rake'
+alias ram='memstat'
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias ranmac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
+alias mac="sudo ifconfig en0 ether"
+alias mac1="sudo ifconfig en1 ether"
+alias cleardns="sudo killall -HUP mDNSResponder"
+alias pgstart="postgres -D /usr/local/var/postgres"
+alias pgrs="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d"
+alias hist="history | grep"
+alias rf="rm -rf"
+
+#file editing
+alias editbash="mvim ~/.bash_profile"
+alias editssh="vim ~/.ssh/known_hosts"
+alias edithosts="sudo vim /private/etc/hosts"
+alias aliases='vim ~/.bash/aliases'
+
+#git
+alias psh="git push origin"
+alias pll="git pull origin"
+alias cmm="git commit -m"
+alias cmma="git commit -am"
+alias addorigin="git remote add origin"
+alias sts="git status"
+alias gdiff="git diff HEAD"
+alias gadd="git add"
+alias pllu="git pull upstream"
+alias dokkupush="git push dokku master"
