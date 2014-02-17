@@ -6,16 +6,16 @@ git-extras
 heroku-toolbelt 
 htop-osx 
 imagemagick 
-vim  
-macvim  
-nmap 
+macvim 
 memcached 
+nmap 
 node 
-qt 
 phantomjs 
 postgresql --no-python 
+qt 
 redis 
 rename 
 tree 
+vim 
 watch 
 wget --enable-iri
