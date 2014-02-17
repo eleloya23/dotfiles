@@ -298,13 +298,13 @@ echo "---> Instalando Firefox"
 installcask firefox 
 
 echo "---> Instalando Flux"
-installcask firefox 
+installcask flux
 
 echo "---> Instalando Google Chrome"
 installcask google-chrome
 
 echo "---> Instalando Handbrake"
-installcask harvest
+installcask handbrake
 
 echo "---> Instalando Harvest Time Tracking"
 installcask harvest
@@ -319,7 +319,7 @@ echo "---> Instalando Kismac"
 installcask kismac 
 
 echo "---> Instalando Littlesnitch"
-installcask kismac 
+installcask littlesnitch 
 
 echo "---> Instalando Textmate"
 installcask texmate
