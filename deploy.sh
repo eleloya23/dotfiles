@@ -374,7 +374,7 @@ curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 source ~/.bash_profile
 
-rvm install 2.0.0
+rvm install 2.1.0
 rvm install 1.9.3
 
 echo "---> Listo!"
