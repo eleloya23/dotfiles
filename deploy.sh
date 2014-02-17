@@ -15,6 +15,7 @@ section "BASH & VIM"
    cout  "Instalando .vim files"
    source $DOTFILES/install.sh
    
+   cout "Copiando wallpaper"
    cp $RESOURCES/wallpaper.jpg ~/Pictures/wallpaper.jpg
    
 #-----------------------------------------------

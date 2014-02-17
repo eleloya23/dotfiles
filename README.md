@@ -82,8 +82,8 @@ Deployster trata de ser lo mas modular posible. Los siguientes archivos son modi
     │   ├── brew.apps
     │   ├── brew.tools 
     │   ├── brew.post 
-    │   ├── osxconfig
-    │   └── rubies 
+    │   ├── rubies
+    │   └── osxconfig 
     └── resources
         ├── wallpaper.jpg
         ├── dotfiles
@@ -97,6 +97,85 @@ Deployster trata de ser lo mas modular posible. Los siguientes archivos son modi
         │   ├── gvimrc
         │   ├── vimrc
         │   ├── vim/*
+
+
+### defaults/brew.apps
+
+Contiene la lista aplicaciones (***Ejemplo.app***) que deployster instala. Para ver la lista de apps mac disponibles [da click aqui](https://github.com/phinze/homebrew-cask/tree/master/Casks).
+
+
+```
+evernote
+firefox 
+google-chrome
+littlesnitch 
+texmate
+transmission
+vlc
+...
+```
+
+### defaults/brew.tools
+
+Contiene la lista command line tools que deployster instala. Cada uno de los elementos de esta lista se instala mediante brew.
+
+
+```
+vim
+wget 
+node
+git
+postgresql
+...
+```
+
+### defaults/brew.post
+
+Si las herramientas que se instalaste necesitan *configuración extra* trata de hacerlo en este archivo.
+
+
+```Shell
+cout "Postgres: Setup"
+initdb /usr/local/var/postgres -E utf8 >/dev/null 2>&1
+...
+```
+
+### defaults/rubies
+
+Este archivo contiene la lista de versiones de **ruby** a instalar por `rvm`
+
+```
+2.1.0
+2.0.0
+1.9.3
+1.8.7
+rbx-2.1.1
+rbx-2.0.0
+...
+```
+
+### defaults/osxconfig
+
+Este archivo contiene comandos que personalizan Mac OS X.
+
+```Shell
+echo "Desactivando efectos de sonido en el boot"
+sudo nvram SystemAudioVolume=" " 2>/dev/null
+
+echo "Desactivar warning cuando se borrar la papelera"
+defaults write com.apple.finder WarnOnEmptyTrash -bool false 2>/dev/null
+...
+```
+
+### resources/wallpaper.jpg
+
+Pensamos que seria buena idea incluir dentro del script el wallpaper de nuestra organizacion. Por supuesto que lo puedes cambiar a tu gusto. Es importante recordar que el archivo **debe llamarse wallpaper.jpg**
+
+### resources/dotfiles/*
+
+En esta carpeta se encuentran archivos de configuracion. Archivos de bash y vim que, en BlueHats, creemos nos hacen mas productivos. Puedes modificarlos o agregar los tuyos, deployer se encarga de copiarlos todos a la carpeta del usuario `~`
+
+
 
 Creditos
 --------

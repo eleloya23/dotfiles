@@ -1,11 +1,5 @@
 #!/bin/sh
 
-cout() {
-  GREEN="\033[01;32m"
-  NOCOLOR="\033[00m"  
-  printf "$GREEN-----> $NOCOLOR %b\n" "$1"
-}
-
 cout "Postgres: Setup"
 initdb /usr/local/var/postgres -E utf8 >/dev/null 2>&1
  
