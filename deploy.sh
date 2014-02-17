@@ -23,8 +23,9 @@ section "BASH & VIM"
 #-----------------------------------------------
 section "GITHUB CONFIG"
    cout "Generando ssh keys (se copiara al clipboard)"
-   [ ! -f ~/.ssh/id_rsa ] && ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa > /dev/null && pbcopy < ~/.ssh/id_rsa.pub
- 
+   [ ! -f ~/.ssh/id_rsa ] && ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa > /dev/null
+   pbcopy < ~/.ssh/id_rsa.pub
+   
    cout "Abriendo github para que agregar la ssh pub key... esperaremos"
    open https://github.com/settings/ssh
 
