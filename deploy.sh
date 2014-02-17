@@ -44,6 +44,8 @@ section "GITHUB CONFIG"
    GIT_NAME_SET=$(git config -f ~/.gitconfig.private user.name)
    [[ -z $GIT_NAME_SET && -z $GIT_NAME ]] && echo 'Escribe tu nombre para git:' && read GIT_NAME
    [[ $GIT_NAME_SET != $GIT_NAME ]] && git config -f ~/.gitconfig.private user.name $GIT_NAME > /dev/null
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
 #-----------------------------------------------
 
 #-----------------------------------------------
@@ -63,23 +65,39 @@ section "HOMEBREW TOLLS & APPS"
      warning "Homebrew already installed. Skipping ..."
    fi
 
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+
    cout "Instalando homebrew-cask"
    brew tap phinze/homebrew-cask 2>/dev/null
    brew install brew-cask 2>/dev/null
   
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+  
    cout "Instalando Command Line Tools"
    while read -r line; do installbrew $line; done < ./defaults/brew.tools
+   
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
 
    cout "Instalando OS X Apps"
    while read -r line; do installcask $line; done < ./defaults/brew.apps
    
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
+   
    cout "Configurando Tools & Apps"
    source brew.post
+   
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
 #-----------------------------------------------
 
 #-----------------------------------------------
 section "MAC OS X CONFIG"
    source $DEFAULTS/osxconfig
+   
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
 #-----------------------------------------------
 
 
@@ -88,7 +106,12 @@ section "RVM & RUBY"
    curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
    echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
    source ~/.bash_profile
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
    while read -r line; do rvm install $line; done < ./defaults/rubies
+   
+   read -sn 1 -p "Presiona cualquier tecla para continuar..."
+   
 #-----------------------------------------------
 
 section "LISTO"
