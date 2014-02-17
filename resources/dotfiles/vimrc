@@ -1,5 +1,3 @@
-
-
 " Cool Shortcuts
 "
 " ,i = open this file
@@ -101,11 +99,11 @@ noremap <Leader>v :vsp^M^W^W<cr>
 noremap <Leader>h :split^M^W^W<cr>
 imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 
+" Quicker window movement
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
 
 cmap w!! w !sudo tee % >/dev/null
 
@@ -129,8 +127,7 @@ set shiftround                   " When at 3 spaces and I hit >>, go to 4, not 5
 set autoindent                   " always set autoidenting on
 set autoread                     " reload file when it changes
 set showmatch                    " jump to a matching bracker usign %
-
-set nocompatible                  
+set nocompatible                  " use vim configuration instead of vi configuration
 set backspace=indent,eol,start    " Intuitive backspacing.
 set history=500                   " big history bro
 set number                        " Show line numbers.

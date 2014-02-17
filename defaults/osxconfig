@@ -23,7 +23,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText â
 echo "Instalamos el bluehats wallpaper"
 /usr/bin/osascript<<END
 tell application "Finder"
-set desktop picture to POSIX file "$HOME/Pictures/bluehats.jpg"
+set desktop picture to POSIX file "$HOME/Pictures/wallpaper.jpg"
 end tell
 END
 

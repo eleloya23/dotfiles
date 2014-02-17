@@ -15,7 +15,7 @@ section "BASH & VIM"
    cout  "Instalando .vim files"
    source $DOTFILES/install.sh
    
-   cp $RESOURCES/wallpaper.jpg ~/Pictures/bluehats.jpg
+   cp $RESOURCES/wallpaper.jpg ~/Pictures/wallpaper.jpg
    
 #-----------------------------------------------
 

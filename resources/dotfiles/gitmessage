@@ -1,10 +1,10 @@
 
-# 50-character subject line
+# Titulo del commit con 50-caracteres
 #
-# 72-character wrapped longer description. This should answer:
+# Descripción de 72-caracteres. Debe responder:
 #
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
+# * Porque es necesario este cambio?
+# * Como soluciona el problema?
+# * Side effects?
 #
-# Include a link to the ticket, if any.
+# Incluir link al issue/ticket (si existe).

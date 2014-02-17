@@ -1,0 +1,9 @@
+*.DS_Store
+*.sw[nop]
+.bundle
+.env
+db/*.sqlite3
+log/*.log
+tags
+tmp/**/*
+!tmp/cache/.keep
