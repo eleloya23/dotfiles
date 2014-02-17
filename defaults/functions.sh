@@ -23,6 +23,7 @@ brew cask install "${@}" 2> /dev/null
 }
 
 function installbrew() {
+cool "${@}"
 brew install "${@}" 2> /dev/null
 }
 

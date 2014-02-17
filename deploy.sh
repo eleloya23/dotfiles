@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DEFAULTS="$PWD/defaults/"
-DOTFILES="$PWD/dotfiles/"
+DOTFILES="$PWD/resources/dotfiles/"
 
 source $DEFAULTS/functions.sh
 
