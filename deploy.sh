@@ -265,10 +265,8 @@ brew install node 2>/dev/null # JS V8 engine
 brew install qt 2>/dev/null
 brew install phantomjs 2>/dev/null # Headless webkit used for testing (with capybara/poltergeist)
 brew install postgresql --no-python 2>/dev/null # Realational Database
-brew install reattach-to-user-namespace 2>/dev/null # Reattaches user namespace in tmux (for pasteboard interaction and ruby motion)
 brew install redis 2>/dev/null # Key-value store
 brew install rename 2>/dev/null # Like mv but better (takes regex)
-brew install tmux 2>/dev/null # Terminal multiplexer (for saving project state and switching between projects)
 brew install tree 2>/dev/null # ASCII view of directory/file structure
 brew install watch 2>/dev/null # Repeateadly run a command (clearing output between runs)
 brew install wget --enable-iri 2>/dev/null # wget with IRI support
@@ -297,13 +295,13 @@ echo "---> Instalando Firefox"
 installcask firefox 
 
 echo "---> Instalando Flux"
-installcask firefox 
+installcask flux 
 
 echo "---> Instalando Google Chrome"
 installcask google-chrome
 
 echo "---> Instalando Handbrake"
-installcask harvest
+installcask handbrake
 
 echo "---> Instalando Harvest Time Tracking"
 installcask harvest
@@ -318,7 +316,7 @@ echo "---> Instalando Kismac"
 installcask kismac 
 
 echo "---> Instalando Littlesnitch"
-installcask kismac 
+installcask littlesnitch 
 
 echo "---> Instalando Textmate"
 installcask texmate
