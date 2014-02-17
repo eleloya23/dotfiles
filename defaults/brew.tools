@@ -1,0 +1,21 @@
+ctags 
+curl-ca-bundle 
+findutils 
+git 
+git-extras 
+heroku-toolbelt 
+htop-osx 
+imagemagick 
+vim  
+macvim  
+nmap 
+memcached 
+node 
+qt 
+phantomjs 
+postgresql --no-python 
+redis 
+rename 
+tree 
+watch 
+wget --enable-iri
