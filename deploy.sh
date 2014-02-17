@@ -260,6 +260,7 @@ brew install htop-osx 2>/dev/null # Better top
 brew install imagemagick 2>/dev/null # Process images (used for carrierwave gem)
 brew install vim  2>/dev/null # Newer, better, faster, stronger vim
 brew install macvim  2>/dev/null # Newer, better, faster, stronger vim
+brew install nmap 2>/dev/null # Good port scanner
 brew install memcached 2>/dev/null # Good open source memory store for caching
 brew install node 2>/dev/null # JS V8 engine
 brew install qt 2>/dev/null
@@ -281,9 +282,6 @@ brew cask install "${@}" 2> /dev/null
 
 echo "---> Instalando Alfred"
 installcask alfred
-
-echo "---> Instalando Cyberduck"
-installcask copy
 
 echo "---> Instalando Copy"
 installcask copy
