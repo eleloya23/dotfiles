@@ -76,16 +76,15 @@ brew cask install "${@}" 2> /dev/null
 }
 
 function installbrew() {
-cool "${@}"
 brew install "${@}" 2> /dev/null
 }
 
   
 cout "Instalando Command Line Tools"
-while read -r line; do installbrew "$line"; done < ./defaults/brew.tools
+while read -r line; do installbrew $line; done < ./defaults/brew.tools
 
 cout "Instalando OS X Apps"
-while read -r line; do installcask "$line"; done < ./defaults/brew.apps
+while read -r line; do installcask $line; done < ./defaults/brew.apps
 
 
 cout "Configurando Mac OS X"
@@ -106,7 +105,6 @@ curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 source ~/.bash_profile
 
-rvm install 2.0.0
-rvm install 1.9.3
+while read -r line; do rvm install $line; done < ./defaults/rubies
 
-cout "Listo!"
+warning "Listo!"
