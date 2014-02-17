@@ -261,6 +261,7 @@ brew install imagemagick 2>/dev/null # Process images (used for carrierwave gem)
 brew install vim  2>/dev/null # Newer, better, faster, stronger vim
 brew install macvim  2>/dev/null # Newer, better, faster, stronger vim
 brew install memcached 2>/dev/null # Good open source memory store for caching
+brew install nmap 2>/dev/null # nmap
 brew install node 2>/dev/null # JS V8 engine
 brew install qt 2>/dev/null
 brew install phantomjs 2>/dev/null # Headless webkit used for testing (with capybara/poltergeist)
@@ -297,13 +298,13 @@ echo "---> Instalando Firefox"
 installcask firefox 
 
 echo "---> Instalando Flux"
-installcask firefox 
+installcask flux
 
 echo "---> Instalando Google Chrome"
 installcask google-chrome
 
 echo "---> Instalando Handbrake"
-installcask harvest
+installcask handbrake
 
 echo "---> Instalando Harvest Time Tracking"
 installcask harvest
@@ -318,7 +319,7 @@ echo "---> Instalando Kismac"
 installcask kismac 
 
 echo "---> Instalando Littlesnitch"
-installcask kismac 
+installcask littlesnitch 
 
 echo "---> Instalando Textmate"
 installcask texmate
@@ -374,7 +375,7 @@ curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 source ~/.bash_profile
 
-rvm install 2.0.0
+rvm install 2.1.0
 rvm install 1.9.3
 
 echo "---> Listo!"
