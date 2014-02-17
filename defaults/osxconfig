@@ -2,16 +2,6 @@
 # Basado en: ~/.osx — http://mths.be/osx
 # Adaptado a nuestra organizacion
 
-cout() {
-  GREEN="\033[01;32m"
-  NOCOLOR="\033[00m"  
-  printf "$GREEN-----> $NOCOLOR %b\n" "$1"
-}
-
-
-cout "Password administrador"
-sudo -v
-
 ###############################################################################
 # Fresh Mac Stuff #
 ###############################################################################
@@ -30,6 +20,12 @@ mkdir ~/Archive 2>/dev/null
 echo "Mostrar 'BlueHats' en el Login Screen"
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText “BlueHats” 2>/dev/null
 
+echo "Instalamos el bluehats wallpaper"
+/usr/bin/osascript<<END
+tell application "Finder"
+set desktop picture to POSIX file "$HOME/Pictures/bluehats.jpg"
+end tell
+END
 
 ###############################################################################
 # General UI/UX #

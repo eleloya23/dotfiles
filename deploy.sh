@@ -2,7 +2,7 @@
 
 DEFAULTS="$PWD/defaults/"
 DOTFILES="$PWD/resources/dotfiles/"
-
+RESOURCES="$PWD/resources/"
 source $DEFAULTS/functions.sh
 
 cout "Escribe el password actual de administrador"
@@ -14,6 +14,9 @@ section "BASH & VIM"
    cout  "Instalando .bash files"
    cout  "Instalando .vim files"
    source $DOTFILES/install.sh
+   
+   cp $RESOURCES/wallpaper.jpg ~/Pictures/bluehats.jpg
+   
 #-----------------------------------------------
 
 
