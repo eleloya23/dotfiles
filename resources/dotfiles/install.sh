@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for name in *; do
+for name in $DOTFILES/*; do
 target="$HOME/.$name"
   if [ -e "$target" ]; then
 if [ ! -L "$target" ]; then
