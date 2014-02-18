@@ -30,7 +30,6 @@ section "GITHUB CONFIG"
    cout "Abriendo github para que agregar la ssh pub key... esperaremos"
    open https://github.com/settings/ssh
 
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
 
    cout "Setup Github"
    GITHUB_USER_SET=$(git config -f ~/.gitconfig.private github.user)
@@ -99,12 +98,9 @@ section "RVM & RUBY"
    curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
    echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
    source ~/.bash_profile
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
    
    while read -r line; do rvm install $line; done < ./defaults/rubies
-   
-   read -sn 1 -p "Presiona cualquier tecla para continuar..."
-   
+      
 #-----------------------------------------------
 
 section "LISTO"

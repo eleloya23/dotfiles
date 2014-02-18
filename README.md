@@ -22,7 +22,7 @@ Instalación
 Escribe lo siguiente en la terminal:
 
 ```shell
-git clone git@github.com:Bluehats/deployster.git
+git clone https://github.com/Bluehats/deployster.git
 cd deployster
 ./deploy.sh
 ```
