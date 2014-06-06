@@ -1,5 +1,5 @@
 # SuperBotas
---------------
+
 Script que transforma tu Mac en una verdadera maquina para programar.
 
 
@@ -27,7 +27,7 @@ Configuración
     │   ├── vimrc
     │   ├── vim/*
 
----
+
 ### **config/tools**
 
 Este archivo tiene la lista de command line tools que se van a instalar en tu compu. Ejemplo:
@@ -38,7 +38,7 @@ vim
 wget
 ...
 ```
----
+
 ### **config/apps**
 
 Este archivo tiene la lista de Desktop Apps que se van a instalar en tu compu. Ejemplo:
@@ -49,7 +49,7 @@ firefox
 chrome
 ...
 ```
----
+
 ### **config/rubies**
 
 Este archivo contiene la lista de versiones de **ruby** a instalar por `rvm`
@@ -63,7 +63,6 @@ rbx-2.1.1
 rbx-2.0.0
 ```
 
----
 ### **config/osxconfig**
 
 Puros comandos para tunnear y optimizar tu maquina. Todos tienen comentarios si quieres saber lo que hacen!.
@@ -77,7 +76,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 2>/de
 ...
 ```
 
----
 ### /dotfiles/*
 
 Archivos de configuración para bash y vim que creemos nos hacen mas productivos. Puedes modificarlos o agregar los tuyos. SuperBotas se encarga de copiarlos todos a la carpeta del usuario `~`
