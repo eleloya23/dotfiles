@@ -4,22 +4,20 @@ DEFAULTS="$PWD/defaults/"
 DOTFILES="$PWD/dotfiles/"
 RESOURCES="$PWD/resources/"
 
+GREEN="\033[01;32m"
+YELLOW="\033[0;33m"
+PINK="\033[01;35m"
+NOCOLOR="\033[00m"
 
-cout() {
-  GREEN="\033[01;32m"
-  NOCOLOR="\033[00m"
+info() {
   printf "$GREEN-----> $NOCOLOR %b\n" "$1"
 }
 
-cool() {
-  GREEN="\033[01;32m"
-  YELLOW="\033[0;33m"
-  NOCOLOR="\033[00m"
+success() {
   printf "$GREEN-----> $YELLOW %b$NOCOLOR\n" "$1"
 }
 
 warning() {
-  PINK="\033[01;35m"
   printf "$PINK-----> %b$NOCOLOR\n" "$1"
 }
 
@@ -34,51 +32,24 @@ brew install "${@}" 2> /dev/null
 }
 
 section(){
-   PINK="\033[01;35m"
-   NOCOLOR="\033[00m"
-   printf "\n$PINK------------------------------------------------$NOCOLOR\n"
-   printf "$PINK%b$NOCOLOR\n" "$1"
+   printf "\n"
+   printf "$PINK------------------------------------------------$NOCOLOR\n"
+   printf "$1"
    printf "$PINK------------------------------------------------$NOCOLOR\n"
 }
-cout "Escribe el password actual de administrador"
+
+info "Escribe el password para sudo"
 sudo -v
 
 #-----------------------------------------------
-section "BASH & VIM"
+section "Instalando DOTFILES"
 
-   cout  "Instalando .bash files"
-   cout  "Instalando .vim files"
+   info  "Instalando .bash_profile"
+   info  "Instalando .vim files"
    source $DOTFILES/install.sh
 
 #-----------------------------------------------
 
-
-#-----------------------------------------------
-section "GITHUB CONFIG"
-   cout "Generando ssh keys (se copiara al clipboard)"
-   [ ! -f ~/.ssh/id_rsa ] && ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa > /dev/null
-   pbcopy < ~/.ssh/id_rsa.pub
-
-   cout "Abriendo github para que agregar la ssh pub key... esperaremos"
-   open https://github.com/settings/ssh
-
-
-   cout "Setup Github"
-   GITHUB_USER_SET=$(git config -f ~/.gitconfig.private github.user)
-   [[ -z $GITHUB_USER_SET && -z $GITHUB_USER ]] && echo 'Escribe tu github username:' && read GITHUB_USER
-   [[ $GITHUB_USER_SET != $GITHUB_USER ]] && git config -f ~/.gitconfig.private github.user $GITHUB_USER > /dev/null
-   [[ -z $GITHUB_USER ]] && GITHUB_USER=$GITHUB_USER_SET
-
-   GIT_EMAIL_SET=$(git config -f ~/.gitconfig.private user.email)
-   [[ -z $GIT_EMAIL_SET && -z $GIT_EMAIL ]] && echo 'Escribe tu correo de github:' && read GIT_EMAIL
-   [[ $GIT_EMAIL_SET != $GIT_EMAIL ]] && git config -f ~/.gitconfig.private user.email $GIT_EMAIL > /dev/null
-
-
-   GIT_NAME_SET=$(git config -f ~/.gitconfig.private user.name)
-   [[ -z $GIT_NAME_SET && -z $GIT_NAME ]] && echo 'Escribe tu nombre para git:' && read GIT_NAME
-   [[ $GIT_NAME_SET != $GIT_NAME ]] && git config -f ~/.gitconfig.private user.name $GIT_NAME > /dev/null
-
-#-----------------------------------------------
 
 #-----------------------------------------------
 section "HOMEBREW TOLLS & APPS"

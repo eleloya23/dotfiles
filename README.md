@@ -24,10 +24,6 @@ Configuración
     │   └── osxconfig
     ├── dotfiles
     │   ├── bash_profile
-    │   ├── aliases
-    │   ├── bashconfig
-    │   ├── functions
-    │   ├── gvimrc
     │   ├── vimrc
     │   ├── vim/*
 
