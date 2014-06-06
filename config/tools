@@ -1,22 +1,19 @@
-ctags 
-curl-ca-bundle 
-findutils 
-git 
-git-extras 
-heroku-toolbelt 
-htop-osx 
-imagemagick 
-macvim 
+ctags
+curl-ca-bundle
+findutils
+git
+git-extras
+heroku-toolbelt
+htop-osx
+imagemagick
+macvim
 memcached
 mosh
-nmap 
-node 
-phantomjs 
-postgresql --no-python 
-qt 
-redis 
-rename 
-tree 
-vim 
-watch 
+nmap
+postgresql --no-python
+redis
+rename
+tree
+vim
+watch
 wget --enable-iri
