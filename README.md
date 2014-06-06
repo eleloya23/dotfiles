@@ -82,7 +82,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 2>/de
 ```
 
 ---
-### resources/dotfiles/*
+### /dotfiles/*
 
 Archivos de configuración para bash y vim que creemos nos hacen mas productivos. Puedes modificarlos o agregar los tuyos. SuperBotas se encarga de copiarlos todos a la carpeta del usuario `~`
 
