@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 DEFAULTS="$PWD/defaults/"
-DOTFILES="$PWD/resources/dotfiles/"
+DOTFILES="$PWD/dotfiles/"
 RESOURCES="$PWD/resources/"
 
 
 cout() {
   GREEN="\033[01;32m"
-  NOCOLOR="\033[00m"  
+  NOCOLOR="\033[00m"
   printf "$GREEN-----> $NOCOLOR %b\n" "$1"
 }
 
@@ -49,9 +49,6 @@ section "BASH & VIM"
    cout  "Instalando .bash files"
    cout  "Instalando .vim files"
    source $DOTFILES/install.sh
-
-   cout "Copiando wallpaper"
-   cp $RESOURCES/wallpaper.jpg ~/Pictures/wallpaper.jpg
 
 #-----------------------------------------------
 

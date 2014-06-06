@@ -1,15 +1,19 @@
 #!/bin/sh
+#
+# Copia los archivos de configuración al folder del usuario
+#
+
+DOTFILES="$PWD/dotfiles/"
 
 for name in $DOTFILES/*; do
 target="$HOME/.${name##*/}"
+  #Solo copia el archivo si no existia antes
   if [ -e "$target" ]; then
-if [ ! -L "$target" ]; then
-warning "WARNING: $target exists but is not a symlink."
-    fi
-else
-if [ "${name##*/}" != 'install.sh' ]; then
-cout "Creando $target"
+    warning "WARNING: $target ya existe, no se reemplazo."
+  else
+    if [ "${name##*/}" != 'install.sh' ]; then
+      cout "Creando $target"
       cp -rf $name $target
     fi
-fi
+  fi
 done
