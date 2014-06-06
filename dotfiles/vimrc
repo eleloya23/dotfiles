@@ -11,18 +11,12 @@
 " ,p = go to previous file
 " ,mt = merge tab with previous tab into a split
 "
-" ,cn = coding notes
-" ,pn = project notes
-" ,gn = notas generales
-" ,mn = Monthly Notes
-"
-" ,pd = Change to personal directory (es la misma, pero aveces me confundo)
 " ,fd = Change directory to current file
 " ,hd = Change directory to ~
 "
-" ################
-" #  Rails Shit  #
-" ################
+" #################
+" #  Rails Stuff  #
+" #################
 "
 " ,gtv = Go To View
 " ,gtc = Go To Controller
@@ -59,19 +53,12 @@ map <leader>n :NERDTreeToggle<cr>
 map <leader>p <C-^> " Go to previous file
 map <leader>mt :call MergeTabs()<cr>
 
-map <leader>cn :e ~/Dropbox/Personal/coding-notes.txt<cr>
-map <leader>pn :e ~/Dropbox/Personal/project-notes.txt<cr>
-map <leader>gn :e ~/Dropbox/Personal/general.tasks<cr>
-map <leader>mn :e ~/Dropbox/Personal/monthly_goals.tasks<cr>
-map <leader>yn :e ~/Dropbox/Personal/yearly_goals.tasks<cr>
-
-map <leader>pd :lcd ~/Dropbox/Personal<cr>
 map <leader>hd :lcd ~<cr>
 map <leader>fd :lcd %:h<cr>
 
-" ################
-" #  Rails Shit  #
-" ################
+" #################
+" #  Rails Stuff  #
+" #################
 map <leader>gtv :Rview
 map <leader>gtc :Rcontroller
 map <leader>gtm :Rmodel
@@ -116,8 +103,13 @@ autocmd BufRead,BufNewFile *.js.coffee setlocal filetype=js.coffee
 " CONFIGURATION
 
 syntax on
-syntax enable                    
+syntax enable
 colorscheme railscasts
+set t_Co=256
+set background=dark
+let g:molokai_original=1
+let g:rehash256=1
+
 filetype plugin on
 filetype plugin indent on
 set tabstop=2                    " Global tab width.
@@ -161,9 +153,6 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 highlight StatusLine ctermfg=blue ctermbg=yellow
-
-
-
 
 command! Q q "Bind :Q to :q
 command! Qall qall
@@ -210,4 +199,3 @@ endif
 split
 execute "buffer " . bufferName
 endfunction
-
