@@ -41,6 +41,12 @@ function git-nuke {
   git branch -D $1 && git push origin :$1
 }
 
+# Git clone and cd into directory
+function gc () { git clone "$1" && cd `echo "'$1'" | cut -d/ -f2 | cut -d. -f1`; }
+
+# Make directory and cd into it
+function mcd () { mkdir -p "$1" && cd "$1"; }
+
 ################################################################################
 
 #######################
