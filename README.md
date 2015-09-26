@@ -1,36 +1,44 @@
-# SuperBotas
+# Ele's dotfiles
 
-Script que transforma tu Mac en una verdadera maquina para programar.
+My defaults. Gets a new OS X installation hacker ready.
 
 
-Pre-Requisitos
+Pre-Requisites
 --------------
 
-- **Mac OS X (10.9 o menor)**
+- **Mac OS X >10.10**
 - **[Command Line Tools for
 XCode](https://developer.apple.com/downloads/index.action).**
 
 
-Configuración
+Installation
+-----------
+
+Type the following into the terminal:
+
+```shell
+git clone https://github.com:eleloya/osx_dotfiles.git
+cd osx_dotfiles
+./bootstrap.sh
+```
+
+
+Configuration
 -----------
 
 
-**SuperBotas** trata de ser lo mas modular posible. Los siguientes archivos son modificables.
+I tried to be as modular as possible. The following files are modifiables.
 
-    ├── config
-    │   ├── apps
-    │   ├── tools
-    │   ├── rubies
-    │   └── osxconfig
+    ├── apps
+    │   ├── cli
+    │   └── gui
     ├── dotfiles
-    │   ├── bash_profile
-    │   ├── vimrc
-    │   ├── vim/*
+    └   └── *
 
 
-### **config/tools**
+### **apps/cli**
 
-Este archivo tiene la lista de command line tools que se van a instalar en tu compu. Ejemplo:
+This file contains all the command line utilities this script is gonna install.
 
 ```
 git
@@ -39,9 +47,9 @@ wget
 ...
 ```
 
-### **config/apps**
+### **apps/gui**
 
-Este archivo tiene la lista de Desktop Apps que se van a instalar en tu compu. Ejemplo:
+This file contains all the graphical applications this script is gonna install.
 
 ```
 virtualbox
@@ -50,55 +58,29 @@ chrome
 ...
 ```
 
-### **config/rubies**
+### **osxconfig**
 
-Este archivo contiene la lista de versiones de **ruby** a instalar por `rvm`
-
-```
-2.1.0
-2.0.0
-1.9.3
-1.8.7
-rbx-2.1.1
-rbx-2.0.0
-```
-
-### **config/osxconfig**
-
-Puros comandos para tunnear y optimizar tu maquina. Todos tienen comentarios si quieres saber lo que hacen!.
+Command to pimp my mac. Every command has a description of what it does. If you want to install this script, I recommend you to read this file thoroughly.
 
 ```bash
-echo "Desactivar warning cuando se borrar la papelera"
-defaults write com.apple.finder WarnOnEmptyTrash -bool false 2>/dev/null
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-echo "Desactivar warning cuando cambias la extension de un archivo"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 2>/dev/null
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 ...
 ```
 
 ### /dotfiles/*
 
-Archivos de configuración para bash y vim que creemos nos hacen mas productivos. Puedes modificarlos o agregar los tuyos. SuperBotas se encarga de copiarlos todos a la carpeta del usuario `~`
+Everything in here gets copied to `~`. You can, of course, replace the contents here with your own dotfiles.
 
 
 
-Instalación
------------
 
-Escribe lo siguiente en la terminal:
-
-```shell
-git clone https://github.com/joseloya/SuperBotas.git
-cd SuperBotas
-./botas.sh
-```
-
-
-
-Creditos
+Thanks to
 --------
-
-SuperBotas esta hecho por @joseloya pero esta basado en varios scripts.
 
 * [laptop](https://github.com/thoughtbot/laptop/) by Thoughtbot
 * [OSXDefauts](https://github.com/kevinSuttle/OSXDefaults/) by Kevin Suttle
