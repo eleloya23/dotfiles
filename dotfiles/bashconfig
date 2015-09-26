@@ -1,0 +1,25 @@
+#HISTORY CONFIGURATION
+
+export HISTSIZE=50000
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+
+#############
+#  general  #
+#############
+
+export EDITOR="vim"
+
+# Autocorrect mispelled directories
+shopt -s cdspell
+
+YELLOW="\[\033[0;33m\]"
+COLOR1="\[\033[01;32m\]" #green
+PINK="\[\033[01;35m\]" #pink
+COLOR2="\[\033[0;36m\]" #blue
+NOCOLOR="\[\033[00m\]"
+export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{if (length($0) > 13) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF; else if (NF>3) print $1 "/" $2 "/.../" $NF; else print $1 "/.../" $NF; } else print $0;}'"'"')'
+
+export PS1="$PINK\u$COLOR1@\h$COLOR2 \W$YELLOW \$(parse_git_branch) $NOCOLOR "
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
