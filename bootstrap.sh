@@ -28,7 +28,7 @@ brew install "${@}" 2> /dev/null
 section(){
    printf "\n"
    printf "$PINK------------------------------------------------$NOCOLOR\n"
-   printf "$1"
+   printf "$1\n"
    printf "$PINK------------------------------------------------$NOCOLOR\n"
 }
 
