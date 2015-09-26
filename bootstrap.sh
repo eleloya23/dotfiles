@@ -49,7 +49,7 @@ section "DOTFILES"
 section "COMMAND LINE TOOLS & APPS"
    info "Installing homebrew"
    if ! which brew &>/dev/null; then
-       ruby <(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)
+       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
        brew update
 
      if ! grep -qs "recommended by brew doctor" ~/.bash_profile; then

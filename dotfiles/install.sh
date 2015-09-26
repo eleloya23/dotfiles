@@ -12,7 +12,7 @@ target="$HOME/.${name##*/}"
     warning "WARNING: $target already exists."
   else
     if [ "${name##*/}" != 'install.sh' ]; then
-      cout "Copying $target"
+      info "Copying $target"
       cp -rf $name $target
     fi
   fi
