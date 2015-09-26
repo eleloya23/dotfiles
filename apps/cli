@@ -1,7 +1,10 @@
+coreutils
 git
 htop-osx
 nmap
 tree
-vim
+vim --override-system-vi
 watch
 wget --with-iri
+openssl
+curl --with-openssl
