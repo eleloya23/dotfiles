@@ -17,7 +17,7 @@ Installation
 Type the following into the terminal:
 
 ```shell
-git clone https://github.com:eleloya/osx_dotfiles.git
+git clone https://github.com/eleloya/osx_dotfiles.git
 cd osx_dotfiles
 ./bootstrap.sh
 ```
