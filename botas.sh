@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-DEFAULTS="$PWD/config/"
 DOTFILES="$PWD/dotfiles/"
+APPS="$PWD/apps/"
 
 GREEN="\033[01;32m"
 YELLOW="\033[0;33m"
@@ -12,7 +11,7 @@ info() {
   printf "$GREEN-----> $NOCOLOR %b\n" "$1"
 }
 
-warning() {
+important() {
   printf "$PINK-----> %b$NOCOLOR\n" "$1"
 }
 
@@ -33,65 +32,53 @@ section(){
    printf "$PINK------------------------------------------------$NOCOLOR\n"
 }
 
-info "Escribe el password para sudo"
+important "Please write sudo password"
 
 sudo -v
 
 #-----------------------------------------------
-section "Instalando DOTFILES"
+section "DOTFILES"
 
-   info  "Instalando .bash_profile"
-   info  "Instalando .vim files"
+   info  "Copying dotfiles"
    source $DOTFILES/install.sh
 
 #-----------------------------------------------
 
 
 #-----------------------------------------------
-section "HOMEBREW TOLLS & APPS"
-   info "Instalando homebrew"
+section "COMMAND LINE TOOLS & APPS"
+   info "Installing homebrew"
    if ! which brew &>/dev/null; then
-       ruby <(curl -fsS https://raw.github.com/Homebrew/homebrew/go/install)
+       ruby <(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)
        brew update
 
      if ! grep -qs "recommended by brew doctor" ~/.bash_profile; then
        echo " " >> ~/.bash_profile
        echo "# recommended by brew doctor" >> ~/.bash_profile
-       echo "export PATH=\"/usr/local/bin:\$PATH\"\n" >> ~/.bash_profile
+       echo "export PATH=\"/usr/local/bin:\$PATH\"" >> ~/.bash_profile
        export PATH="/usr/local/bin:$PATH"
      fi
    else
-     warning "Homebrew already installed. Skipping ..."
+     important "Homebrew already installed. Skipping ..."
    fi
 
-   info "Instalando homebrew-cask"
-   brew tap phinze/homebrew-cask 2>/dev/null
-   brew install brew-cask 2>/dev/null
+   info "Installing homebrew-cask"
+   brew install caskroom/cask/brew-cask 2>/dev/null
 
-   info "Instalando Command Line Tools"
-   while read -r line; do installbrew $line; done < ./config/tools
+   info "Installing Command Line Tools"
+   while read -r line; do installbrew $line; done < $APPS/cli
 
 
-   info "Instalando OS X Apps"
-   while read -r line; do installcask $line; done < ./config/apps
+   info "Installing OS X Apps"
+   while read -r line; do installcask $line; done < $APPS/gui
 
 #-----------------------------------------------
 
 #-----------------------------------------------
 section "MAC OS X CONFIGURATION"
-   source $DEFAULTS/osxconfig
+   source ./osxconfig
 
 #-----------------------------------------------
 
 
-#-----------------------------------------------
-section "RVM & RUBY"
-   curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable
-   echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
-   source ~/.bash_profile
-
-   while read -r line; do rvm install $line; done < ./config/rubies
-
-#-----------------------------------------------
-
-section "LISTO"
+important "YOUR MAC IS READY"
