@@ -27,7 +27,7 @@ Configuration
 -----------
 
 
-I tried to be as modular as possible. The following files are modifiables.
+The following files are modifiables/configurable.
 
     ├── apps
     │   ├── cli
@@ -38,7 +38,7 @@ I tried to be as modular as possible. The following files are modifiables.
 
 ### **apps/cli**
 
-This file contains all the command line utilities this script is gonna install.
+The Command Line Utilities this script is gonna install.
 
 ```
 git
@@ -49,7 +49,7 @@ wget
 
 ### **apps/gui**
 
-This file contains all the graphical applications this script is gonna install.
+The Graphical Applications this script is gonna install.
 
 ```
 virtualbox
@@ -60,7 +60,7 @@ chrome
 
 ### **osxconfig**
 
-Command to pimp my mac. Every command has a description of what it does. If you want to install this script, I recommend you to read this file thoroughly.
+Commands to pimp OS X. Every command has a description of what it does. If you want to install this script, please read this file beforehand.
 
 ```bash
 # Require password immediately after sleep or screen saver begins
@@ -79,7 +79,7 @@ Everything in here gets copied to `~`. You can, of course, replace the contents 
 
 
 
-Thanks to
+Credits
 --------
 
 * [laptop](https://github.com/thoughtbot/laptop/) by Thoughtbot
