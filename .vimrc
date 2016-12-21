@@ -41,6 +41,7 @@ set nocompatible " Who needs VI compatibility anymore?
 set tabstop=2 " No one will need more than 2 spaces wide tabs for a personal computer- Bill Gates
 set shiftwidth=2
 set expandtab " Spaces > Tabs
+au FileType python setl sw=4 sts=4 et
 set shiftround " Align to the nearest tab. 2+TAB=4 / 3+TAB=4
 set autoindent
 set autoread
